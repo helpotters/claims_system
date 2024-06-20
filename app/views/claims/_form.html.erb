@@ -1,0 +1,36 @@
+<%= form_with(model: claim) do |form| %>
+  <%= render "error_messages", resource: form.object %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="form-group">
+    <%= form.label :municipality_id, class: "required" %>
+    <%= form.select :municipality_id, options_from_collection_for_select(Municipality.order(:name), :id, :name), { prompt: 'Select Municipality' }, class: "form-control mr-4" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.text_field :status, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :claim_number %>
+    <%= form.text_field :claim_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :claim_description %>
+    <%= form.text_area :claim_description, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.button button_text(form.send(:submit_default_value)), class: "btn btn-primary" %>
+
+    <% if form.object.new_record? %>
+      <%= link_to t("cancel"), claims_path, class: "btn btn-secondary" %>
+    <% else %>
+      <%= link_to t("cancel"), claim_path(@claim), class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+<% end %>

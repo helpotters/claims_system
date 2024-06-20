@@ -1,0 +1,21 @@
+<div id="<%= dom_id claim %>">
+  <div class="mb-4">
+    <p class="text-sm font-medium text-gray-500">Municipality</p>
+    <%= claim.municipality_id %>
+  </div>
+  <div class="mb-4">
+    <p class="text-sm font-medium text-gray-500">Status</p>
+    <%= claim.status %>
+  </div>
+  <div class="mb-4">
+    <p class="text-sm font-medium text-gray-500">Claim number</p>
+    <%= claim.claim_number %>
+  </div>
+  <div class="mb-4">
+    <p class="text-sm font-medium text-gray-500">Claim description</p>
+    <%= claim.claim_description %>
+  </div>
+  <% if action_name != "show" %>
+    <%= link_to "View this claim", claim, class: "btn btn-secondary" %>
+  <% end %>
+</div>

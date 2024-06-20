@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  municipality: one
+  status: MyString
+  claim_number: MyString
+  claim_description: MyText
+
+two:
+  municipality: two
+  status: MyString
+  claim_number: MyString
+  claim_description: MyText
