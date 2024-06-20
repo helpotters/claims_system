@@ -5,5 +5,5 @@ class Municipality < ApplicationRecord
   belongs_to :account
 
   # Validations
-  validates :name, presence: true, uniqueness: { scope: :account_id }
+  validates :name, presence: true, uniqueness: {scope: :account_id}
 end
