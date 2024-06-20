@@ -79,7 +79,7 @@ class ClaimsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def claim_params
-    params.require(:claim).permit(:municipality_id, :user_id, :status, :claim_number, :claim_description)
+    params.require(:claim).permit(:municipality_id, :user_id, :signature, :status, :claim_number, :claim_description)
 
     # Uncomment to use Pundit permitted attributes
     # params.require(:claim).permit(policy(@claim).permitted_attributes)

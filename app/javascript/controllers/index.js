@@ -19,3 +19,6 @@ application.register('slideover', Slideover)
 
 import Flatpickr from 'stimulus-flatpickr'
 application.register('flatpickr', Flatpickr)
+
+import SignaturePad from './signature_pad_controller'
+application.register('signature-pad', SignaturePad)
