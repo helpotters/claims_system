@@ -23,27 +23,15 @@
     <%= form.text_area :claim_description, class: "form-control" %>
   </div>
 
-  <%#= form.hidden_field :signature, class: 'signature_pad_input', data: { target: "signature-pad.input" } %>
-<!--  <div class="signature_pad text-center" data-controller="signature-pad"  data-target="signature-pad.signaturePad">-->
-<!--    <div class="signature_pad_body">-->
-<!--      <canvas data-target="signature-pad.canvas"></canvas>-->
-<!--    </div>-->
-<!--    <div class="signature_pad_footer">-->
-<!--      <div class="text-muted">Sign above</div>-->
-<!--      <button type="button" class="btn btn-default signature_pad_clear" data-target="signature-pad.clearButton">Clear</button>-->
-      <%#= form.submit 'Save', class: 'btn btn-success signature_pad_save', data: { target: "signature-pad.saveButton" } %>
-<!--    </div>-->
-<!--  </div>-->
-
   <%# Signature %>
-      <div data-controller="signature-pad" class="signature-pad-container mb-6">
-        <canvas data-signature-pad-target="canvas" width="400" height="200"></canvas>
-  <%= form.hidden_field :signature_data, data: { signature_pad_target: "input" } %>
-        <button type="button" data-action="signature-pad#clear">Clear Signature</button>
-      </div>
+  <div data-controller="signature-pad" class="signature-pad-container mb-6">
+    <canvas data-signature-pad-target="canvas" width="400" height="200"></canvas>
+    <%= form.hidden_field :signature_data, data: { signature_pad_target: "input" } %>
+    <button type="button" data-action="signature-pad#clear">Clear Signature</button>
+  </div>
 
   <div>
-    <%= form.button button_text(form.send(:submit_default_value)), class: "btn btn-primary" %>
+    <%= form.button button_text(form.send(:submit_default_value)), class: "btn btn-primary", data: { action: "signature-pad#save" } %>
 
     <% if form.object.new_record? %>
       <%= link_to t("cancel"), claims_path, class: "btn btn-secondary" %>
